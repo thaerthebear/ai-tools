@@ -3,291 +3,419 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Tools I Use — Thaer Bear</title>
-    <meta name="description" content="The AI animation tools I use to create talking cartoon characters, smooth animation, and viral YouTube content. All open source.">
-    <meta property="og:title" content="AI Tools I Use — Thaer Bear">
-    <meta property="og:description" content="The AI tools behind my YouTube content. Talking cartoons, smooth animation, lip sync — all AI powered.">
-    <meta property="og:type" content="website">
+    <title>AI Tools Directory — Every AI Tool You Need, Free & Open Source</title>
+    <meta name="description" content="The ultimate directory of free open-source AI tools. Generate images, videos, voices, music, restore photos, and more. All free.">
+    <meta property="og:title" content="AI Tools Directory — Free & Open Source">
+    <meta property="og:description" content="21 free AI tools organized by what you actually want to do. Images, video, voice cloning, music, face animation, and more.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{font-family:'Inter',sans-serif;background:#09090b;color:#e0e0e0;min-height:100vh}
 
-        body {
-            font-family: 'Inter', -apple-system, sans-serif;
-            background: #0a0a0f;
-            color: #e0e0e0;
-            min-height: 100vh;
-        }
+        nav{display:flex;justify-content:space-between;align-items:center;padding:14px 30px;background:#09090b;border-bottom:1px solid#1a1a2e;position:sticky;top:0;z-index:100;backdrop-filter:blur(12px)}
+        nav .logo{font-size:20px;font-weight:800;color:#fff}
+        nav .logo span{color:#c9a84c}
+        nav .links{display:flex;gap:20px}
+        nav .links a{color:#94a3b8;text-decoration:none;font-size:13px;font-weight:500;transition:color .2s}
+        nav .links a:hover{color:#c9a84c}
 
-        /* NAV */
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 16px 30px;
-            background: #0a0a0f;
-            border-bottom: 1px solid #1a1a2e;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            backdrop-filter: blur(12px);
-        }
-        nav .logo { font-size: 20px; font-weight: 800; color: #fff; }
-        nav .logo span { color: #c9a84c; }
-        nav .links { display: flex; gap: 24px; }
-        nav .links a {
-            color: #94a3b8; text-decoration: none; font-size: 14px; font-weight: 500;
-            transition: color 0.2s;
-        }
-        nav .links a:hover { color: #c9a84c; }
+        .hero{text-align:center;padding:70px 20px 50px;background:linear-gradient(180deg,#0f1628 0%,#09090b 100%)}
+        .hero-badge{display:inline-block;padding:5px 14px;background:#c9a84c15;border:1px solid #c9a84c33;border-radius:20px;font-size:12px;color:#c9a84c;font-weight:600;margin-bottom:18px;letter-spacing:.5px;text-transform:uppercase}
+        .hero h1{font-size:48px;font-weight:900;color:#fff;line-height:1.1;margin-bottom:14px;max-width:750px;margin-left:auto;margin-right:auto}
+        .hero h1 span{color:#c9a84c}
+        .hero p{font-size:17px;color:#94a3b8;max-width:600px;margin:0 auto 24px;line-height:1.6}
+        .hero-stats{display:flex;justify-content:center;gap:40px;margin-top:36px;flex-wrap:wrap}
+        .hero-stats .s{text-align:center}
+        .hero-stats .n{font-size:32px;font-weight:800;color:#fff}
+        .hero-stats .l{font-size:12px;color:#64748b;margin-top:2px}
 
-        /* HERO */
-        .hero {
-            text-align: center;
-            padding: 80px 20px 60px;
-            background: linear-gradient(180deg, #0f1628 0%, #0a0a0f 100%);
-        }
-        .hero-badge {
-            display: inline-block;
-            padding: 6px 16px;
-            background: #c9a84c15;
-            border: 1px solid #c9a84c33;
-            border-radius: 20px;
-            font-size: 13px;
-            color: #c9a84c;
-            font-weight: 600;
-            margin-bottom: 20px;
-        }
-        .hero h1 {
-            font-size: 52px;
-            font-weight: 900;
-            color: #fff;
-            line-height: 1.1;
-            margin-bottom: 16px;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        .hero h1 span { color: #c9a84c; }
-        .hero p {
-            font-size: 18px;
-            color: #94a3b8;
-            max-width: 600px;
-            margin: 0 auto 30px;
-            line-height: 1.6;
-        }
-        .hero-cta {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 12px 28px;
-            background: #c9a84c;
-            color: #0a0a0f;
-            border-radius: 10px;
-            font-size: 15px;
-            font-weight: 700;
-            text-decoration: none;
-            transition: all 0.2s;
-        }
-        .hero-cta:hover { background: #dbb85e; transform: translateY(-2px); }
+        .filter-bar{display:flex;justify-content:center;gap:8px;padding:20px;flex-wrap:wrap;position:sticky;top:52px;z-index:99;background:#09090b;border-bottom:1px solid#1a1a2e}
+        .filter-btn{padding:7px 16px;border-radius:8px;border:1px solid#1e1e2e;background:#12121a;color:#94a3b8;font-size:13px;font-weight:600;cursor:pointer;transition:all .2s}
+        .filter-btn:hover,.filter-btn.active{background:#c9a84c;color:#09090b;border-color:#c9a84c}
 
-        .stats {
-            display: flex;
-            justify-content: center;
-            gap: 48px;
-            margin-top: 48px;
-            flex-wrap: wrap;
-        }
-        .stat { text-align: center; }
-        .stat .num { font-size: 36px; font-weight: 800; color: #fff; }
-        .stat .label { font-size: 13px; color: #64748b; margin-top: 4px; }
+        .category{padding:40px 30px 20px;max-width:1200px;margin:0 auto}
+        .category-head{display:flex;align-items:center;gap:12px;margin-bottom:20px}
+        .category-icon{width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px}
+        .category h2{font-size:24px;font-weight:800;color:#fff}
+        .category .cat-desc{font-size:14px;color:#64748b;margin-left:52px;margin-top:-12px;margin-bottom:16px}
 
-        /* DEMO SECTION */
-        .demos {
-            padding: 60px 30px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        .demos h2 {
-            font-size: 32px; font-weight: 800; color: #fff;
-            text-align: center; margin-bottom: 8px;
-        }
-        .demos .subtitle {
-            text-align: center; color: #94a3b8; font-size: 16px; margin-bottom: 40px;
-        }
-        .demo-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 20px;
-        }
-        .demo-card {
-            background: #12121a;
-            border: 1px solid #1e1e2e;
-            border-radius: 14px;
-            overflow: hidden;
-            transition: all 0.3s;
-        }
-        .demo-card:hover { border-color: #c9a84c44; transform: translateY(-3px); }
-        .demo-card .video-wrap {
-            position: relative;
-            padding-top: 56.25%;
-            background: #000;
-        }
-        .demo-card iframe {
-            position: absolute;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            border: none;
-        }
-        .demo-card .demo-info { padding: 16px 20px; }
-        .demo-card h3 { font-size: 16px; color: #fff; margin-bottom: 4px; }
-        .demo-card p { font-size: 13px; color: #94a3b8; line-height: 1.5; }
-        .demo-card .demo-tool {
-            display: inline-block;
-            margin-top: 8px;
-            padding: 3px 10px;
-            border-radius: 6px;
-            font-size: 11px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-        .tool-sadtalker { background: #06b6d422; color: #67e8f9; border: 1px solid #06b6d444; }
-        .tool-tooncrafter { background: #7c3aed22; color: #a78bfa; border: 1px solid #7c3aed44; }
-        .tool-liveportrait { background: #f59e0b22; color: #fcd34d; border: 1px solid #f59e0b44; }
+        .tools-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px}
 
-        /* TOOLS GRID */
-        .section { padding: 60px 30px; max-width: 1200px; margin: 0 auto; }
-        .section h2 {
-            font-size: 32px; font-weight: 800; color: #fff;
-            margin-bottom: 8px;
-        }
-        .section .subtitle { color: #94a3b8; font-size: 16px; margin-bottom: 36px; }
+        .tool{background:#12121a;border:1px solid#1e1e2e;border-radius:12px;padding:20px;transition:all .3s;position:relative}
+        .tool:hover{border-color:#c9a84c44;transform:translateY(-2px)}
+        .tool h3{font-size:17px;color:#fff;margin-bottom:2px}
+        .tool .one-liner{font-size:12px;color:#c9a84c;font-weight:600;margin-bottom:10px}
+        .tool .desc{font-size:13px;color:#94a3b8;line-height:1.6;margin-bottom:12px}
+        .tool .desc strong{color:#e0e0e0}
+        .tool-tags{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:12px}
+        .tool-tags span{background:#1a1a2e;padding:3px 8px;border-radius:5px;font-size:11px;color:#cbd5e1;border:1px solid#2a2a3e}
+        .tool-footer{display:flex;justify-content:space-between;align-items:center;padding-top:12px;border-top:1px solid#1e1e2e}
+        .tool-footer .stars{font-size:12px;color:#64748b}
+        .tool-footer a{color:#c9a84c;text-decoration:none;font-size:12px;font-weight:600}
+        .tool-footer a:hover{text-decoration:underline}
+        .free-badge{position:absolute;top:12px;right:12px;padding:2px 8px;background:#10b98122;border:1px solid#10b98144;border-radius:4px;font-size:10px;color:#6ee7b7;font-weight:700;text-transform:uppercase}
 
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-        }
+        .demos{padding:50px 30px;max-width:1200px;margin:0 auto}
+        .demos h2{font-size:28px;font-weight:800;color:#fff;text-align:center;margin-bottom:6px}
+        .demos .sub{text-align:center;color:#94a3b8;font-size:15px;margin-bottom:30px}
+        .demo-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px}
+        .demo-card{background:#12121a;border:1px solid#1e1e2e;border-radius:12px;overflow:hidden}
+        .demo-card .vw{position:relative;padding-top:56.25%;background:#000}
+        .demo-card iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:none}
+        .demo-card .di{padding:14px 18px}
+        .demo-card h3{font-size:15px;color:#fff;margin-bottom:3px}
+        .demo-card p{font-size:12px;color:#94a3b8}
 
-        .card {
-            background: #12121a;
-            border: 1px solid #1e1e2e;
-            border-radius: 14px;
-            padding: 24px;
-            transition: all 0.3s;
-        }
-        .card:hover { border-color: #c9a84c44; transform: translateY(-3px); }
+        footer{text-align:center;padding:40px 20px;border-top:1px solid#1a1a2e;margin-top:40px}
+        footer p{color:#64748b;font-size:12px}
+        footer a{color:#c9a84c;text-decoration:none}
 
-        .card-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; }
-        .card-icon {
-            width: 48px; height: 48px; border-radius: 12px;
-            display: flex; align-items: center; justify-content: center; font-size: 24px;
-        }
-        .icon-toon { background: linear-gradient(135deg, #7c3aed, #a78bfa); }
-        .icon-animate { background: linear-gradient(135deg, #10b981, #6ee7b7); }
-        .icon-live { background: linear-gradient(135deg, #f59e0b, #fcd34d); }
-        .icon-sad { background: linear-gradient(135deg, #06b6d4, #67e8f9); }
-
-        .badge {
-            padding: 3px 10px; border-radius: 20px;
-            font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px;
-        }
-        .b-anim { background: #7c3aed22; color: #a78bfa; border: 1px solid #7c3aed44; }
-        .b-talk { background: #06b6d422; color: #67e8f9; border: 1px solid #06b6d444; }
-        .b-vid { background: #10b98122; color: #6ee7b7; border: 1px solid #10b98144; }
-        .b-port { background: #f59e0b22; color: #fcd34d; border: 1px solid #f59e0b44; }
-
-        .card h3 { font-size: 20px; color: #fff; margin-bottom: 4px; }
-        .card .tagline { font-size: 13px; color: #c9a84c; font-weight: 600; margin-bottom: 12px; }
-        .card .explain { font-size: 14px; color: #94a3b8; line-height: 1.7; }
-        .card .explain strong { color: #e0e0e0; }
-
-        .card-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 16px; }
-        .card-tags span {
-            background: #1a1a2e; padding: 4px 10px; border-radius: 6px;
-            font-size: 12px; color: #cbd5e1; border: 1px solid #2a2a3e;
-        }
-
-        .card-link {
-            display: block; margin-top: 16px; padding-top: 16px;
-            border-top: 1px solid #1e1e2e;
-        }
-        .card-link a {
-            color: #c9a84c; text-decoration: none; font-size: 13px; font-weight: 600;
-        }
-        .card-link a:hover { text-decoration: underline; }
-
-        /* PIPELINE */
-        .pipeline-section { padding: 60px 30px; max-width: 1200px; margin: 0 auto; }
-        .pipeline {
-            display: flex; align-items: center; gap: 0;
-            overflow-x: auto; padding: 20px 0;
-        }
-        .step {
-            background: #12121a; border: 1px solid #1e1e2e;
-            border-radius: 12px; padding: 20px; min-width: 180px;
-            text-align: center; flex-shrink: 0;
-        }
-        .step .num {
-            width: 32px; height: 32px; background: #c9a84c; color: #0a0a0f;
-            border-radius: 50%; display: flex; align-items: center; justify-content: center;
-            font-weight: 800; font-size: 14px; margin: 0 auto 8px;
-        }
-        .step h4 { color: #fff; font-size: 14px; margin-bottom: 4px; }
-        .step p { color: #64748b; font-size: 11px; }
-        .arrow { font-size: 20px; color: #c9a84c; padding: 0 6px; flex-shrink: 0; }
-
-        /* FOOTER */
-        footer {
-            text-align: center; padding: 40px 20px;
-            border-top: 1px solid #1a1a2e; margin-top: 40px;
-        }
-        footer p { color: #64748b; font-size: 13px; }
-        footer a { color: #c9a84c; text-decoration: none; }
-
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 32px; }
-            .stats { gap: 24px; }
-            nav .links { gap: 12px; }
-        }
+        @media(max-width:768px){.hero h1{font-size:30px}.hero-stats{gap:20px}}
     </style>
 </head>
 <body>
 
 <nav>
-    <div class="logo">thaer<span>.ai</span></div>
+    <div class="logo">AI<span>tools</span>.directory</div>
     <div class="links">
+        <a href="#image-gen">Images</a>
+        <a href="#video-gen">Video</a>
+        <a href="#voice">Voice</a>
+        <a href="#face">Faces</a>
+        <a href="#music">Music</a>
         <a href="#demos">Demos</a>
-        <a href="#tools">Tools</a>
-        <a href="#pipeline">Pipeline</a>
         <a href="https://youtube.com/@RebuiltPros" target="_blank">YouTube</a>
     </div>
 </nav>
 
 <div class="hero">
-    <div class="hero-badge">Open Source AI Toolkit</div>
-    <h1>The AI Tools I Use to Make <span>Viral Videos</span></h1>
-    <p>I create talking cartoon characters, smooth animations, and documentary-style content using free open-source AI tools. Here's my entire stack.</p>
-    <a href="#demos" class="hero-cta">See the demos &darr;</a>
+    <div class="hero-badge">100% Free &amp; Open Source</div>
+    <h1>Every AI Tool You Need. <span>Zero Cost.</span></h1>
+    <p>The best open-source AI tools organized by what you actually want to do. Generate images, clone voices, animate faces, make music, restore photos — all free.</p>
+    <div class="hero-stats">
+        <div class="s"><div class="n">21</div><div class="l">AI Tools</div></div>
+        <div class="s"><div class="n">8</div><div class="l">Categories</div></div>
+        <div class="s"><div class="n">$0</div><div class="l">To Use</div></div>
+        <div class="s"><div class="n">500K+</div><div class="l">GitHub Stars Combined</div></div>
+    </div>
+</div>
 
-    <div class="stats">
-        <div class="stat">
-            <div class="num">4</div>
-            <div class="label">AI Tools</div>
+<!-- IMAGE GENERATION -->
+<div class="category" id="image-gen">
+    <div class="category-head">
+        <div class="category-icon" style="background:linear-gradient(135deg,#8b5cf6,#c084fc)">🎨</div>
+        <h2>Image Generation</h2>
+    </div>
+    <p class="cat-desc">Type a description, get a picture. These tools generate any image you can imagine.</p>
+    <div class="tools-grid">
+        <div class="tool">
+            <span class="free-badge">Free</span>
+            <h3>Stable Diffusion WebUI</h3>
+            <div class="one-liner">The OG AI image generator</div>
+            <p class="desc">The most popular AI image generator in the world. Type what you want and it creates it. <strong>Photorealistic faces, anime, landscapes, product shots</strong> — anything. Has a web interface you run on your computer.</p>
+            <div class="tool-tags"><span>Text to Image</span><span>Image to Image</span><span>Inpainting</span><span>150K+ Stars</span></div>
+            <div class="tool-footer">
+                <span class="stars">by AUTOMATIC1111</span>
+                <a href="https://github.com/AUTOMATIC1111/stable-diffusion-webui" target="_blank">GitHub &rarr;</a>
+            </div>
         </div>
-        <div class="stat">
-            <div class="num">100%</div>
-            <div class="label">Open Source</div>
+        <div class="tool">
+            <span class="free-badge">Free</span>
+            <h3>ComfyUI</h3>
+            <div class="one-liner">Visual workflow for AI images</div>
+            <p class="desc">Like Stable Diffusion but with a <strong>drag-and-drop node editor</strong>. Connect blocks together to build custom image generation pipelines. Power users love this — you can chain multiple AI models together in one workflow.</p>
+            <div class="tool-tags"><span>Node Editor</span><span>Custom Workflows</span><span>Extensible</span></div>
+            <div class="tool-footer">
+                <span class="stars">by comfyanonymous</span>
+                <a href="https://github.com/comfyanonymous/ComfyUI" target="_blank">GitHub &rarr;</a>
+            </div>
         </div>
-        <div class="stat">
-            <div class="num">$0.03</div>
-            <div class="label">Per Video</div>
+        <div class="tool">
+            <span class="free-badge">Free</span>
+            <h3>Fooocus</h3>
+            <div class="one-liner">Easiest AI image generator</div>
+            <p class="desc">If Stable Diffusion is too complicated, use this. <strong>One click install, type and generate.</strong> No settings to configure. Designed to be as simple as Midjourney but completely free and offline. Best for beginners.</p>
+            <div class="tool-tags"><span>Beginner Friendly</span><span>One Click</span><span>Offline</span></div>
+            <div class="tool-footer">
+                <span class="stars">by lllyasviel</span>
+                <a href="https://github.com/lllyasviel/Fooocus" target="_blank">GitHub &rarr;</a>
+            </div>
         </div>
-        <div class="stat">
-            <div class="num">~2min</div>
-            <div class="label">To Generate</div>
+    </div>
+</div>
+
+<!-- VIDEO GENERATION -->
+<div class="category" id="video-gen">
+    <div class="category-head">
+        <div class="category-icon" style="background:linear-gradient(135deg,#10b981,#6ee7b7)">🎬</div>
+        <h2>Video Generation</h2>
+    </div>
+    <p class="cat-desc">Turn images into videos, animate between frames, or generate video from text.</p>
+    <div class="tools-grid">
+        <div class="tool">
+            <span class="free-badge">Free</span>
+            <h3>ToonCrafter</h3>
+            <div class="one-liner">Smooth cartoon animation</div>
+            <p class="desc">Give it <strong>two cartoon images</strong> and it creates smooth animation between them. Like drawing the first and last frame of a flipbook and AI fills in the middle. From <strong>SIGGRAPH Asia 2024</strong>.</p>
+            <div class="tool-tags"><span>Cartoon Animation</span><span>Frame Interpolation</span><span>SIGGRAPH</span></div>
+            <div class="tool-footer">
+                <span class="stars">by Doubiiu</span>
+                <a href="https://github.com/Doubiiu/ToonCrafter" target="_blank">GitHub &rarr;</a>
+            </div>
+        </div>
+        <div class="tool">
+            <span class="free-badge">Free</span>
+            <h3>AnimateDiff</h3>
+            <div class="one-liner">Make any image move</div>
+            <p class="desc">Adds a <strong>motion module</strong> to Stable Diffusion so your generated images come alive. Characters walk, waves crash, hair blows in wind. The go-to for AI video clips.</p>
+            <div class="tool-tags"><span>Image to Video</span><span>Motion Module</span><span>SD Compatible</span></div>
+            <div class="tool-footer">
+                <span class="stars">by guoyww</span>
+                <a href="https://github.com/guoyww/AnimateDiff" target="_blank">GitHub &rarr;</a>
+            </div>
+        </div>
+        <div class="tool">
+            <span class="free-badge">Free</span>
+            <h3>Open-Sora</h3>
+            <div class="one-liner">Open source Sora alternative</div>
+            <p class="desc">An open-source version of OpenAI's Sora. <strong>Generate full videos from text descriptions.</strong> "A dog running on a beach at sunset" becomes a real video. Still early but improving fast.</p>
+            <div class="tool-tags"><span>Text to Video</span><span>Open Source Sora</span><span>Research</span></div>
+            <div class="tool-footer">
+                <span class="stars">by hpcaitech</span>
+                <a href="https://github.com/hpcaitech/Open-Sora" target="_blank">GitHub &rarr;</a>
+            </div>
+        </div>
+        <div class="tool">
+            <span class="free-badge">Free</span>
+            <h3>Wan2.1</h3>
+            <div class="one-liner">Next-gen video generation</div>
+            <p class="desc">Latest open-source video generation model. <strong>High quality text-to-video and image-to-video.</strong> Creates cinematic clips with natural motion and good consistency.</p>
+            <div class="tool-tags"><span>Text to Video</span><span>Image to Video</span><span>Latest Model</span></div>
+            <div class="tool-footer">
+                <span class="stars">by Wan-Video</span>
+                <a href="https://github.com/Wan-Video/Wan2.1" target="_blank">GitHub &rarr;</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- VOICE & AUDIO -->
+<div class="category" id="voice">
+    <div class="category-head">
+        <div class="category-icon" style="background:linear-gradient(135deg,#06b6d4,#67e8f9)">🎤</div>
+        <h2>Voice & Speech</h2>
+    </div>
+    <p class="cat-desc">Clone any voice, convert your voice to someone else's, or generate speech from text.</p>
+    <div class="tools-grid">
+        <div class="tool">
+            <span class="free-badge">Free</span>
+            <h3>RVC (Voice Conversion)</h3>
+            <div class="one-liner">Clone any voice in minutes</div>
+            <p class="desc">Record 10 minutes of someone's voice and RVC can <strong>clone it</strong>. Then you speak and it comes out sounding like them — in real time. Used by musicians, content creators, and voice actors worldwide.</p>
+            <div class="tool-tags"><span>Voice Cloning</span><span>Real-time</span><span>10min Training</span></div>
+            <div class="tool-footer">
+                <span class="stars">by RVC-Project</span>
+                <a href="https://github.com/RVC-Project/Retrieval-based-Voice-Conversion-WebUI" target="_blank">GitHub &rarr;</a>
+            </div>
+        </div>
+        <div class="tool">
+            <span class="free-badge">Free</span>
+            <h3>Fish Speech</h3>
+            <div class="one-liner">Ultra-realistic text to speech</div>
+            <p class="desc"><strong>Type text, get a human-sounding voice reading it.</strong> Supports multiple languages, emotions, and speaking styles. Way more natural than robotic TTS. Clone a voice from just 15 seconds of audio.</p>
+            <div class="tool-tags"><span>Text to Speech</span><span>Voice Clone</span><span>Multi-language</span></div>
+            <div class="tool-footer">
+                <span class="stars">by fishaudio</span>
+                <a href="https://github.com/fishaudio/fish-speech" target="_blank">GitHub &rarr;</a>
+            </div>
+        </div>
+        <div class="tool">
+            <span class="free-badge">Free</span>
+            <h3>Coqui TTS</h3>
+            <div class="one-liner">Production-grade text to speech</div>
+            <p class="desc">Battle-tested TTS engine with <strong>1100+ languages</strong>. Used in real products. Great API for developers who need to add voice to their apps. Run it locally, no cloud needed.</p>
+            <div class="tool-tags"><span>1100+ Languages</span><span>Production Ready</span><span>Developer API</span></div>
+            <div class="tool-footer">
+                <span class="stars">by coqui-ai</span>
+                <a href="https://github.com/coqui-ai/TTS" target="_blank">GitHub &rarr;</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- FACE ANIMATION -->
+<div class="category" id="face">
+    <div class="category-head">
+        <div class="category-icon" style="background:linear-gradient(135deg,#f59e0b,#fcd34d)">🎭</div>
+        <h2>Face Animation</h2>
+    </div>
+    <p class="cat-desc">Make any face talk, move, or express emotions. Real or cartoon.</p>
+    <div class="tools-grid">
+        <div class="tool">
+            <span class="free-badge">Free</span>
+            <h3>SadTalker</h3>
+            <div class="one-liner">Make any face talk from audio</div>
+            <p class="desc">Give it a photo + audio and the face <strong>talks with lip sync</strong>. Head moves naturally, mouth matches words. <strong>CVPR 2023</strong> paper. Works on real faces, cartoons, paintings — anything with a face.</p>
+            <div class="tool-tags"><span>Lip Sync</span><span>Audio Driven</span><span>CVPR 2023</span></div>
+            <div class="tool-footer">
+                <span class="stars">by OpenTalker</span>
+                <a href="https://github.com/OpenTalker/SadTalker" target="_blank">GitHub &rarr;</a>
+            </div>
+        </div>
+        <div class="tool">
+            <span class="free-badge">Free</span>
+            <h3>LivePortrait</h3>
+            <div class="one-liner">Bring any portrait to life</div>
+            <p class="desc">Any face picture and it <strong>adds head turns, blinks, eyebrow raises, expressions</strong>. You control the motion. Like Harry Potter moving portraits. Made by the <strong>Kling AI</strong> team.</p>
+            <div class="tool-tags"><span>Expression Control</span><span>Any Face Style</span><span>Kling AI</span></div>
+            <div class="tool-footer">
+                <span class="stars">by KlingAIResearch</span>
+                <a href="https://github.com/KlingAIResearch/LivePortrait" target="_blank">GitHub &rarr;</a>
+            </div>
+        </div>
+        <div class="tool">
+            <span class="free-badge">Free</span>
+            <h3>Deep Live Cam</h3>
+            <div class="one-liner">Real-time face swap on webcam</div>
+            <p class="desc"><strong>Swap your face with anyone in real-time on your webcam.</strong> One photo of the target face is all you need. Works in video calls, streaming, or recording. The viral face swap tool of 2025.</p>
+            <div class="tool-tags"><span>Real-time</span><span>Face Swap</span><span>Webcam</span><span>Viral</span></div>
+            <div class="tool-footer">
+                <span class="stars">by hacksider</span>
+                <a href="https://github.com/hacksider/Deep-Live-Cam" target="_blank">GitHub &rarr;</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- MUSIC -->
+<div class="category" id="music">
+    <div class="category-head">
+        <div class="category-icon" style="background:linear-gradient(135deg,#ec4899,#f9a8d4)">🎵</div>
+        <h2>Music & Sound</h2>
+    </div>
+    <p class="cat-desc">Generate music, sound effects, and audio from text descriptions.</p>
+    <div class="tools-grid">
+        <div class="tool">
+            <span class="free-badge">Free</span>
+            <h3>AudioCraft</h3>
+            <div class="one-liner">Meta's AI music generator</div>
+            <p class="desc">Made by Meta (Facebook). Type <strong>"upbeat hip hop beat with bass"</strong> and it generates the music. Also does sound effects and audio from text. Research-grade quality, completely open source.</p>
+            <div class="tool-tags"><span>Text to Music</span><span>Sound Effects</span><span>Meta Research</span></div>
+            <div class="tool-footer">
+                <span class="stars">by facebookresearch</span>
+                <a href="https://github.com/facebookresearch/audiocraft" target="_blank">GitHub &rarr;</a>
+            </div>
+        </div>
+        <div class="tool">
+            <span class="free-badge">Free</span>
+            <h3>Bark</h3>
+            <div class="one-liner">AI that speaks AND sings</div>
+            <p class="desc">From Suno AI. Generates <strong>speech, music, sound effects, and even singing</strong> all from text prompts. Add [laughs] or [singing] in your text and it actually does it. Wild versatility.</p>
+            <div class="tool-tags"><span>Speech + Music</span><span>Singing</span><span>Sound Effects</span></div>
+            <div class="tool-footer">
+                <span class="stars">by suno-ai</span>
+                <a href="https://github.com/suno-ai/bark" target="_blank">GitHub &rarr;</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- UPSCALE & RESTORE -->
+<div class="category" id="upscale">
+    <div class="category-head">
+        <div class="category-icon" style="background:linear-gradient(135deg,#14b8a6,#5eead4)">✨</div>
+        <h2>Upscale & Restore</h2>
+    </div>
+    <p class="cat-desc">Fix blurry photos, upscale low-res images, restore old damaged photos.</p>
+    <div class="tools-grid">
+        <div class="tool">
+            <span class="free-badge">Free</span>
+            <h3>Real-ESRGAN</h3>
+            <div class="one-liner">Make any image 4x sharper</div>
+            <p class="desc"><strong>Upscale any image to 4x resolution</strong> while making it look natural. Blurry photo? Old screenshot? Low-res meme? Feed it through and get a crispy HD version. Works on photos, art, and anime.</p>
+            <div class="tool-tags"><span>4x Upscale</span><span>Photo + Anime</span><span>One Click</span></div>
+            <div class="tool-footer">
+                <span class="stars">by xinntao</span>
+                <a href="https://github.com/xinntao/Real-ESRGAN" target="_blank">GitHub &rarr;</a>
+            </div>
+        </div>
+        <div class="tool">
+            <span class="free-badge">Free</span>
+            <h3>CodeFormer</h3>
+            <div class="one-liner">Restore and fix faces in photos</div>
+            <p class="desc">Old damaged photo? Blurry face? CodeFormer <strong>rebuilds faces</strong> to look clear and natural. Used by restoration professionals. Also removes scratches, fixes colors, and enhances old photos.</p>
+            <div class="tool-tags"><span>Face Restoration</span><span>Old Photo Fix</span><span>Professional</span></div>
+            <div class="tool-footer">
+                <span class="stars">by sczhou</span>
+                <a href="https://github.com/sczhou/CodeFormer" target="_blank">GitHub &rarr;</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- TEXT AI -->
+<div class="category" id="text">
+    <div class="category-head">
+        <div class="category-icon" style="background:linear-gradient(135deg,#6366f1,#a5b4fc)">💬</div>
+        <h2>Chat & Text AI</h2>
+    </div>
+    <p class="cat-desc">Run ChatGPT-like AI models on your own computer. Private, free, unlimited.</p>
+    <div class="tools-grid">
+        <div class="tool">
+            <span class="free-badge">Free</span>
+            <h3>Open WebUI</h3>
+            <div class="one-liner">ChatGPT but on your computer</div>
+            <p class="desc">A beautiful <strong>ChatGPT-style interface</strong> that runs locally. Connect it to Ollama or any AI model. Chat, generate text, analyze documents — all offline, all private, all free. No OpenAI subscription needed.</p>
+            <div class="tool-tags"><span>ChatGPT Alternative</span><span>Local</span><span>Private</span></div>
+            <div class="tool-footer">
+                <span class="stars">by open-webui</span>
+                <a href="https://github.com/open-webui/open-webui" target="_blank">GitHub &rarr;</a>
+            </div>
+        </div>
+        <div class="tool">
+            <span class="free-badge">Free</span>
+            <h3>Text Generation WebUI</h3>
+            <div class="one-liner">Run any AI model locally</div>
+            <p class="desc">The Swiss Army knife. <strong>Load any open-source AI model</strong> (LLaMA, Mistral, etc.) and chat with it through a web interface. Supports extensions, characters, and fine-tuning. The power user's choice.</p>
+            <div class="tool-tags"><span>Any Model</span><span>Extensions</span><span>Advanced</span></div>
+            <div class="tool-footer">
+                <span class="stars">by oobabooga</span>
+                <a href="https://github.com/oobabooga/text-generation-webui" target="_blank">GitHub &rarr;</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- CODE AI -->
+<div class="category" id="code">
+    <div class="category-head">
+        <div class="category-icon" style="background:linear-gradient(135deg,#f97316,#fdba74)">💻</div>
+        <h2>Code AI</h2>
+    </div>
+    <p class="cat-desc">AI that helps you write code. Like GitHub Copilot but free and open source.</p>
+    <div class="tools-grid">
+        <div class="tool">
+            <span class="free-badge">Free</span>
+            <h3>Continue</h3>
+            <div class="one-liner">Open source Copilot for VS Code</div>
+            <p class="desc"><strong>AI code autocomplete and chat inside VS Code.</strong> Connect it to any AI model (Claude, GPT, local models). Tab to accept suggestions, ask questions about your code, generate functions. Free Copilot alternative.</p>
+            <div class="tool-tags"><span>VS Code</span><span>Autocomplete</span><span>Any Model</span></div>
+            <div class="tool-footer">
+                <span class="stars">by continuedev</span>
+                <a href="https://github.com/continuedev/continue" target="_blank">GitHub &rarr;</a>
+            </div>
+        </div>
+        <div class="tool">
+            <span class="free-badge">Free</span>
+            <h3>Tabby</h3>
+            <div class="one-liner">Self-hosted code AI</div>
+            <p class="desc">Run your own Copilot server. <strong>Code completion that runs on your machine</strong> — your code never leaves your computer. Supports multiple languages and editors. Perfect for privacy-conscious developers.</p>
+            <div class="tool-tags"><span>Self-hosted</span><span>Private</span><span>Multi-editor</span></div>
+            <div class="tool-footer">
+                <span class="stars">by TabbyML</span>
+                <a href="https://github.com/TabbyML/tabby" target="_blank">GitHub &rarr;</a>
+            </div>
         </div>
     </div>
 </div>
@@ -295,183 +423,25 @@
 <!-- DEMOS -->
 <div class="demos" id="demos">
     <h2>Live Demos</h2>
-    <p class="subtitle">Real results from each tool — generated in minutes, not hours</p>
+    <p class="sub">Real results from these tools — see them in action</p>
     <div class="demo-grid">
         <div class="demo-card">
-            <div class="video-wrap">
-                <iframe src="https://www.youtube.com/embed/BfhSioVRpNU" allowfullscreen></iframe>
-            </div>
-            <div class="demo-info">
-                <h3>AI Talking Cartoon Character</h3>
-                <p>Generated a Pixar-style character and made it speak with perfect lip sync. One image + one audio file = talking cartoon.</p>
-                <span class="demo-tool tool-sadtalker">SadTalker</span>
-            </div>
+            <div class="vw"><iframe src="https://www.youtube.com/embed/BfhSioVRpNU" allowfullscreen></iframe></div>
+            <div class="di"><h3>AI Talking Cartoon (SadTalker)</h3><p>Generated a character and made it talk with lip sync</p></div>
         </div>
         <div class="demo-card">
-            <div class="video-wrap">
-                <iframe src="https://www.youtube.com/embed/hb-POIzsAhU" allowfullscreen></iframe>
-            </div>
-            <div class="demo-info">
-                <h3>Dark Psychology Short</h3>
-                <p>9 AI-generated scenes with cinematic Ken Burns motion, narrator voice, and auto-captions. Full pipeline, zero manual work.</p>
-                <span class="demo-tool tool-tooncrafter">Full Pipeline</span>
-            </div>
+            <div class="vw"><iframe src="https://www.youtube.com/embed/hb-POIzsAhU" allowfullscreen></iframe></div>
+            <div class="di"><h3>Dark Psychology Short (Full Pipeline)</h3><p>AI images + Ken Burns + narration + auto-captions</p></div>
         </div>
         <div class="demo-card">
-            <div class="video-wrap">
-                <iframe src="https://www.youtube.com/embed/Re8YNOVcXIQ" allowfullscreen></iframe>
-            </div>
-            <div class="demo-info">
-                <h3>Motivational Documentary Short</h3>
-                <p>Cinematic photorealistic visuals, deep narrator voice, emotional story about feeling lost. AI wrote, generated, and assembled everything.</p>
-                <span class="demo-tool tool-liveportrait">Full Pipeline</span>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- TOOLS -->
-<div class="section" id="tools">
-    <h2>The Toolkit</h2>
-    <p class="subtitle">Each tool does one thing incredibly well — together they're unstoppable</p>
-    <div class="grid">
-
-        <div class="card">
-            <div class="card-head">
-                <div class="card-icon icon-sad">🗣️</div>
-                <span class="badge b-talk">Talking Head</span>
-            </div>
-            <h3>SadTalker</h3>
-            <div class="tagline">Makes any face talk from audio</div>
-            <p class="explain">
-                Give it <strong>a picture + an audio file</strong> and it makes the person talk with real lip sync.
-                Mouth moves to match words, head nods naturally. Published at <strong>CVPR 2023</strong>
-                — the biggest computer vision conference in the world.
-            </p>
-            <div class="card-tags">
-                <span>Lip Sync</span>
-                <span>Any Face</span>
-                <span>Audio Driven</span>
-            </div>
-            <div class="card-link">
-                <a href="https://github.com/OpenTalker/SadTalker" target="_blank">View on GitHub &rarr;</a>
-            </div>
-        </div>
-
-        <div class="card">
-            <div class="card-head">
-                <div class="card-icon icon-toon">🎬</div>
-                <span class="badge b-anim">Animation</span>
-            </div>
-            <h3>ToonCrafter</h3>
-            <div class="tagline">Smooth animation between cartoon frames</div>
-            <p class="explain">
-                Give it <strong>two cartoon images</strong> and it generates all the frames in between.
-                Like drawing the first and last page of a flipbook, and AI draws everything in the middle.
-                From <strong>SIGGRAPH Asia 2024</strong>.
-            </p>
-            <div class="card-tags">
-                <span>Frame Interpolation</span>
-                <span>Cartoon Style</span>
-                <span>Smooth Motion</span>
-            </div>
-            <div class="card-link">
-                <a href="https://github.com/Doubiiu/ToonCrafter" target="_blank">View on GitHub &rarr;</a>
-            </div>
-        </div>
-
-        <div class="card">
-            <div class="card-head">
-                <div class="card-icon icon-live">🎭</div>
-                <span class="badge b-port">Portrait</span>
-            </div>
-            <h3>LivePortrait</h3>
-            <div class="tagline">Brings any portrait to life</div>
-            <p class="explain">
-                Any picture of a face — real, cartoon, painting — and it <strong>makes it move</strong>.
-                Head turns, eyebrows raise, eyes blink. You control the expressions.
-                Like Harry Potter moving portraits, but real. Made by the <strong>Kling AI</strong> team.
-            </p>
-            <div class="card-tags">
-                <span>Face Animation</span>
-                <span>Expression Control</span>
-                <span>Any Style</span>
-            </div>
-            <div class="card-link">
-                <a href="https://github.com/KlingAIResearch/LivePortrait" target="_blank">View on GitHub &rarr;</a>
-            </div>
-        </div>
-
-        <div class="card">
-            <div class="card-head">
-                <div class="card-icon icon-animate">🌊</div>
-                <span class="badge b-vid">Video Gen</span>
-            </div>
-            <h3>AnimateDiff</h3>
-            <div class="tagline">Turns any image into video</div>
-            <p class="explain">
-                Works with <strong>Stable Diffusion</strong> and adds a motion module that teaches AI how things move.
-                Generate an image, then AnimateDiff makes it walk, wave, or look around.
-                Like giving an artist the superpower of animation.
-            </p>
-            <div class="card-tags">
-                <span>Image to Video</span>
-                <span>Motion Module</span>
-                <span>Stable Diffusion</span>
-            </div>
-            <div class="card-link">
-                <a href="https://github.com/guoyww/AnimateDiff" target="_blank">View on GitHub &rarr;</a>
-            </div>
-        </div>
-
-    </div>
-</div>
-
-<!-- PIPELINE -->
-<div class="pipeline-section" id="pipeline">
-    <h2>The Pipeline</h2>
-    <p class="subtitle">How I go from idea to published video</p>
-    <div class="pipeline">
-        <div class="step">
-            <div class="num">1</div>
-            <h4>Write Script</h4>
-            <p>AI generates scenes + prompts</p>
-        </div>
-        <div class="arrow">&rarr;</div>
-        <div class="step">
-            <div class="num">2</div>
-            <h4>Generate Images</h4>
-            <p>Flux Schnell ($0.003 each)</p>
-        </div>
-        <div class="arrow">&rarr;</div>
-        <div class="step">
-            <div class="num">3</div>
-            <h4>Generate Audio</h4>
-            <p>Edge-TTS (free)</p>
-        </div>
-        <div class="arrow">&rarr;</div>
-        <div class="step">
-            <div class="num">4</div>
-            <h4>Animate</h4>
-            <p>Ken Burns / ToonCrafter / SadTalker</p>
-        </div>
-        <div class="arrow">&rarr;</div>
-        <div class="step">
-            <div class="num">5</div>
-            <h4>Assemble</h4>
-            <p>FFmpeg (free)</p>
-        </div>
-        <div class="arrow">&rarr;</div>
-        <div class="step">
-            <div class="num">6</div>
-            <h4>Upload</h4>
-            <p>YouTube API (auto)</p>
+            <div class="vw"><iframe src="https://www.youtube.com/embed/Re8YNOVcXIQ" allowfullscreen></iframe></div>
+            <div class="di"><h3>Motivational Documentary (Full Pipeline)</h3><p>Cinematic visuals + deep narrator + emotional story</p></div>
         </div>
     </div>
 </div>
 
 <footer>
-    <p>Built by <a href="https://youtube.com/@RebuiltPros" target="_blank">Thaer Bear</a> &middot; All tools are open source &middot; Total cost per video: ~$0.03</p>
+    <p>Built by <a href="https://youtube.com/@RebuiltPros" target="_blank">Thaer Bear</a> &middot; 21 tools, all open source &middot; <a href="https://github.com/thaerthebear/ai-tools" target="_blank">View on GitHub</a></p>
 </footer>
 
 </body>
