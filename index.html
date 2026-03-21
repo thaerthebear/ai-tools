@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Tools I Use — Thaer Bear</title>
+    <meta name="description" content="The AI animation tools I use to create talking cartoon characters, smooth animation, and viral YouTube content. All open source.">
+    <meta property="og:title" content="AI Tools I Use — Thaer Bear">
+    <meta property="og:description" content="The AI tools behind my YouTube content. Talking cartoons, smooth animation, lip sync — all AI powered.">
+    <meta property="og:type" content="website">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background: #0a0a0f;
+            color: #e0e0e0;
+            min-height: 100vh;
+        }
+
+        /* NAV */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 30px;
+            background: #0a0a0f;
+            border-bottom: 1px solid #1a1a2e;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(12px);
+        }
+        nav .logo { font-size: 20px; font-weight: 800; color: #fff; }
+        nav .logo span { color: #c9a84c; }
+        nav .links { display: flex; gap: 24px; }
+        nav .links a {
+            color: #94a3b8; text-decoration: none; font-size: 14px; font-weight: 500;
+            transition: color 0.2s;
+        }
+        nav .links a:hover { color: #c9a84c; }
+
+        /* HERO */
+        .hero {
+            text-align: center;
+            padding: 80px 20px 60px;
+            background: linear-gradient(180deg, #0f1628 0%, #0a0a0f 100%);
+        }
+        .hero-badge {
+            display: inline-block;
+            padding: 6px 16px;
+            background: #c9a84c15;
+            border: 1px solid #c9a84c33;
+            border-radius: 20px;
+            font-size: 13px;
+            color: #c9a84c;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+        .hero h1 {
+            font-size: 52px;
+            font-weight: 900;
+            color: #fff;
+            line-height: 1.1;
+            margin-bottom: 16px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .hero h1 span { color: #c9a84c; }
+        .hero p {
+            font-size: 18px;
+            color: #94a3b8;
+            max-width: 600px;
+            margin: 0 auto 30px;
+            line-height: 1.6;
+        }
+        .hero-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 28px;
+            background: #c9a84c;
+            color: #0a0a0f;
+            border-radius: 10px;
+            font-size: 15px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+        .hero-cta:hover { background: #dbb85e; transform: translateY(-2px); }
+
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 48px;
+            margin-top: 48px;
+            flex-wrap: wrap;
+        }
+        .stat { text-align: center; }
+        .stat .num { font-size: 36px; font-weight: 800; color: #fff; }
+        .stat .label { font-size: 13px; color: #64748b; margin-top: 4px; }
+
+        /* DEMO SECTION */
+        .demos {
+            padding: 60px 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .demos h2 {
+            font-size: 32px; font-weight: 800; color: #fff;
+            text-align: center; margin-bottom: 8px;
+        }
+        .demos .subtitle {
+            text-align: center; color: #94a3b8; font-size: 16px; margin-bottom: 40px;
+        }
+        .demo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 20px;
+        }
+        .demo-card {
+            background: #12121a;
+            border: 1px solid #1e1e2e;
+            border-radius: 14px;
+            overflow: hidden;
+            transition: all 0.3s;
+        }
+        .demo-card:hover { border-color: #c9a84c44; transform: translateY(-3px); }
+        .demo-card .video-wrap {
+            position: relative;
+            padding-top: 56.25%;
+            background: #000;
+        }
+        .demo-card iframe {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            border: none;
+        }
+        .demo-card .demo-info { padding: 16px 20px; }
+        .demo-card h3 { font-size: 16px; color: #fff; margin-bottom: 4px; }
+        .demo-card p { font-size: 13px; color: #94a3b8; line-height: 1.5; }
+        .demo-card .demo-tool {
+            display: inline-block;
+            margin-top: 8px;
+            padding: 3px 10px;
+            border-radius: 6px;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .tool-sadtalker { background: #06b6d422; color: #67e8f9; border: 1px solid #06b6d444; }
+        .tool-tooncrafter { background: #7c3aed22; color: #a78bfa; border: 1px solid #7c3aed44; }
+        .tool-liveportrait { background: #f59e0b22; color: #fcd34d; border: 1px solid #f59e0b44; }
+
+        /* TOOLS GRID */
+        .section { padding: 60px 30px; max-width: 1200px; margin: 0 auto; }
+        .section h2 {
+            font-size: 32px; font-weight: 800; color: #fff;
+            margin-bottom: 8px;
+        }
+        .section .subtitle { color: #94a3b8; font-size: 16px; margin-bottom: 36px; }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: #12121a;
+            border: 1px solid #1e1e2e;
+            border-radius: 14px;
+            padding: 24px;
+            transition: all 0.3s;
+        }
+        .card:hover { border-color: #c9a84c44; transform: translateY(-3px); }
+
+        .card-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; }
+        .card-icon {
+            width: 48px; height: 48px; border-radius: 12px;
+            display: flex; align-items: center; justify-content: center; font-size: 24px;
+        }
+        .icon-toon { background: linear-gradient(135deg, #7c3aed, #a78bfa); }
+        .icon-animate { background: linear-gradient(135deg, #10b981, #6ee7b7); }
+        .icon-live { background: linear-gradient(135deg, #f59e0b, #fcd34d); }
+        .icon-sad { background: linear-gradient(135deg, #06b6d4, #67e8f9); }
+
+        .badge {
+            padding: 3px 10px; border-radius: 20px;
+            font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px;
+        }
+        .b-anim { background: #7c3aed22; color: #a78bfa; border: 1px solid #7c3aed44; }
+        .b-talk { background: #06b6d422; color: #67e8f9; border: 1px solid #06b6d444; }
+        .b-vid { background: #10b98122; color: #6ee7b7; border: 1px solid #10b98144; }
+        .b-port { background: #f59e0b22; color: #fcd34d; border: 1px solid #f59e0b44; }
+
+        .card h3 { font-size: 20px; color: #fff; margin-bottom: 4px; }
+        .card .tagline { font-size: 13px; color: #c9a84c; font-weight: 600; margin-bottom: 12px; }
+        .card .explain { font-size: 14px; color: #94a3b8; line-height: 1.7; }
+        .card .explain strong { color: #e0e0e0; }
+
+        .card-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 16px; }
+        .card-tags span {
+            background: #1a1a2e; padding: 4px 10px; border-radius: 6px;
+            font-size: 12px; color: #cbd5e1; border: 1px solid #2a2a3e;
+        }
+
+        .card-link {
+            display: block; margin-top: 16px; padding-top: 16px;
+            border-top: 1px solid #1e1e2e;
+        }
+        .card-link a {
+            color: #c9a84c; text-decoration: none; font-size: 13px; font-weight: 600;
+        }
+        .card-link a:hover { text-decoration: underline; }
+
+        /* PIPELINE */
+        .pipeline-section { padding: 60px 30px; max-width: 1200px; margin: 0 auto; }
+        .pipeline {
+            display: flex; align-items: center; gap: 0;
+            overflow-x: auto; padding: 20px 0;
+        }
+        .step {
+            background: #12121a; border: 1px solid #1e1e2e;
+            border-radius: 12px; padding: 20px; min-width: 180px;
+            text-align: center; flex-shrink: 0;
+        }
+        .step .num {
+            width: 32px; height: 32px; background: #c9a84c; color: #0a0a0f;
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            font-weight: 800; font-size: 14px; margin: 0 auto 8px;
+        }
+        .step h4 { color: #fff; font-size: 14px; margin-bottom: 4px; }
+        .step p { color: #64748b; font-size: 11px; }
+        .arrow { font-size: 20px; color: #c9a84c; padding: 0 6px; flex-shrink: 0; }
+
+        /* FOOTER */
+        footer {
+            text-align: center; padding: 40px 20px;
+            border-top: 1px solid #1a1a2e; margin-top: 40px;
+        }
+        footer p { color: #64748b; font-size: 13px; }
+        footer a { color: #c9a84c; text-decoration: none; }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 32px; }
+            .stats { gap: 24px; }
+            nav .links { gap: 12px; }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="logo">thaer<span>.ai</span></div>
+    <div class="links">
+        <a href="#demos">Demos</a>
+        <a href="#tools">Tools</a>
+        <a href="#pipeline">Pipeline</a>
+        <a href="https://youtube.com/@RebuiltPros" target="_blank">YouTube</a>
+    </div>
+</nav>
+
+<div class="hero">
+    <div class="hero-badge">Open Source AI Toolkit</div>
+    <h1>The AI Tools I Use to Make <span>Viral Videos</span></h1>
+    <p>I create talking cartoon characters, smooth animations, and documentary-style content using free open-source AI tools. Here's my entire stack.</p>
+    <a href="#demos" class="hero-cta">See the demos &darr;</a>
+
+    <div class="stats">
+        <div class="stat">
+            <div class="num">4</div>
+            <div class="label">AI Tools</div>
+        </div>
+        <div class="stat">
+            <div class="num">100%</div>
+            <div class="label">Open Source</div>
+        </div>
+        <div class="stat">
+            <div class="num">$0.03</div>
+            <div class="label">Per Video</div>
+        </div>
+        <div class="stat">
+            <div class="num">~2min</div>
+            <div class="label">To Generate</div>
+        </div>
+    </div>
+</div>
+
+<!-- DEMOS -->
+<div class="demos" id="demos">
+    <h2>Live Demos</h2>
+    <p class="subtitle">Real results from each tool — generated in minutes, not hours</p>
+    <div class="demo-grid">
+        <div class="demo-card">
+            <div class="video-wrap">
+                <iframe src="https://www.youtube.com/embed/BfhSioVRpNU" allowfullscreen></iframe>
+            </div>
+            <div class="demo-info">
+                <h3>AI Talking Cartoon Character</h3>
+                <p>Generated a Pixar-style character and made it speak with perfect lip sync. One image + one audio file = talking cartoon.</p>
+                <span class="demo-tool tool-sadtalker">SadTalker</span>
+            </div>
+        </div>
+        <div class="demo-card">
+            <div class="video-wrap">
+                <iframe src="https://www.youtube.com/embed/hb-POIzsAhU" allowfullscreen></iframe>
+            </div>
+            <div class="demo-info">
+                <h3>Dark Psychology Short</h3>
+                <p>9 AI-generated scenes with cinematic Ken Burns motion, narrator voice, and auto-captions. Full pipeline, zero manual work.</p>
+                <span class="demo-tool tool-tooncrafter">Full Pipeline</span>
+            </div>
+        </div>
+        <div class="demo-card">
+            <div class="video-wrap">
+                <iframe src="https://www.youtube.com/embed/Re8YNOVcXIQ" allowfullscreen></iframe>
+            </div>
+            <div class="demo-info">
+                <h3>Motivational Documentary Short</h3>
+                <p>Cinematic photorealistic visuals, deep narrator voice, emotional story about feeling lost. AI wrote, generated, and assembled everything.</p>
+                <span class="demo-tool tool-liveportrait">Full Pipeline</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- TOOLS -->
+<div class="section" id="tools">
+    <h2>The Toolkit</h2>
+    <p class="subtitle">Each tool does one thing incredibly well — together they're unstoppable</p>
+    <div class="grid">
+
+        <div class="card">
+            <div class="card-head">
+                <div class="card-icon icon-sad">🗣️</div>
+                <span class="badge b-talk">Talking Head</span>
+            </div>
+            <h3>SadTalker</h3>
+            <div class="tagline">Makes any face talk from audio</div>
+            <p class="explain">
+                Give it <strong>a picture + an audio file</strong> and it makes the person talk with real lip sync.
+                Mouth moves to match words, head nods naturally. Published at <strong>CVPR 2023</strong>
+                — the biggest computer vision conference in the world.
+            </p>
+            <div class="card-tags">
+                <span>Lip Sync</span>
+                <span>Any Face</span>
+                <span>Audio Driven</span>
+            </div>
+            <div class="card-link">
+                <a href="https://github.com/OpenTalker/SadTalker" target="_blank">View on GitHub &rarr;</a>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-head">
+                <div class="card-icon icon-toon">🎬</div>
+                <span class="badge b-anim">Animation</span>
+            </div>
+            <h3>ToonCrafter</h3>
+            <div class="tagline">Smooth animation between cartoon frames</div>
+            <p class="explain">
+                Give it <strong>two cartoon images</strong> and it generates all the frames in between.
+                Like drawing the first and last page of a flipbook, and AI draws everything in the middle.
+                From <strong>SIGGRAPH Asia 2024</strong>.
+            </p>
+            <div class="card-tags">
+                <span>Frame Interpolation</span>
+                <span>Cartoon Style</span>
+                <span>Smooth Motion</span>
+            </div>
+            <div class="card-link">
+                <a href="https://github.com/Doubiiu/ToonCrafter" target="_blank">View on GitHub &rarr;</a>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-head">
+                <div class="card-icon icon-live">🎭</div>
+                <span class="badge b-port">Portrait</span>
+            </div>
+            <h3>LivePortrait</h3>
+            <div class="tagline">Brings any portrait to life</div>
+            <p class="explain">
+                Any picture of a face — real, cartoon, painting — and it <strong>makes it move</strong>.
+                Head turns, eyebrows raise, eyes blink. You control the expressions.
+                Like Harry Potter moving portraits, but real. Made by the <strong>Kling AI</strong> team.
+            </p>
+            <div class="card-tags">
+                <span>Face Animation</span>
+                <span>Expression Control</span>
+                <span>Any Style</span>
+            </div>
+            <div class="card-link">
+                <a href="https://github.com/KlingAIResearch/LivePortrait" target="_blank">View on GitHub &rarr;</a>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-head">
+                <div class="card-icon icon-animate">🌊</div>
+                <span class="badge b-vid">Video Gen</span>
+            </div>
+            <h3>AnimateDiff</h3>
+            <div class="tagline">Turns any image into video</div>
+            <p class="explain">
+                Works with <strong>Stable Diffusion</strong> and adds a motion module that teaches AI how things move.
+                Generate an image, then AnimateDiff makes it walk, wave, or look around.
+                Like giving an artist the superpower of animation.
+            </p>
+            <div class="card-tags">
+                <span>Image to Video</span>
+                <span>Motion Module</span>
+                <span>Stable Diffusion</span>
+            </div>
+            <div class="card-link">
+                <a href="https://github.com/guoyww/AnimateDiff" target="_blank">View on GitHub &rarr;</a>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- PIPELINE -->
+<div class="pipeline-section" id="pipeline">
+    <h2>The Pipeline</h2>
+    <p class="subtitle">How I go from idea to published video</p>
+    <div class="pipeline">
+        <div class="step">
+            <div class="num">1</div>
+            <h4>Write Script</h4>
+            <p>AI generates scenes + prompts</p>
+        </div>
+        <div class="arrow">&rarr;</div>
+        <div class="step">
+            <div class="num">2</div>
+            <h4>Generate Images</h4>
+            <p>Flux Schnell ($0.003 each)</p>
+        </div>
+        <div class="arrow">&rarr;</div>
+        <div class="step">
+            <div class="num">3</div>
+            <h4>Generate Audio</h4>
+            <p>Edge-TTS (free)</p>
+        </div>
+        <div class="arrow">&rarr;</div>
+        <div class="step">
+            <div class="num">4</div>
+            <h4>Animate</h4>
+            <p>Ken Burns / ToonCrafter / SadTalker</p>
+        </div>
+        <div class="arrow">&rarr;</div>
+        <div class="step">
+            <div class="num">5</div>
+            <h4>Assemble</h4>
+            <p>FFmpeg (free)</p>
+        </div>
+        <div class="arrow">&rarr;</div>
+        <div class="step">
+            <div class="num">6</div>
+            <h4>Upload</h4>
+            <p>YouTube API (auto)</p>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <p>Built by <a href="https://youtube.com/@RebuiltPros" target="_blank">Thaer Bear</a> &middot; All tools are open source &middot; Total cost per video: ~$0.03</p>
+</footer>
+
+</body>
+</html>

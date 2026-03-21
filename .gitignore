@@ -1,0 +1,12 @@
+# Ignore heavy files
+demos/
+ToonCrafter/
+AnimateDiff/
+LivePortrait/
+SadTalker/
+*.mp4
+*.mp3
+*.m4a
+*.png
+*.jpg
+.env
